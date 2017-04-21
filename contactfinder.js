@@ -11,11 +11,21 @@ function checkContact(val) {
           return;
         };
       const $ = cheerio.load(res.text);
-        if ($("a[href*='contact']").length !== 0) {
-          console.log($("a[href*='contact']")[0].attribs.href);
-        } else {
-          console.log("There is no contact link");
-        };
+        getContact($);
+        getEmail($);
     });
 };
+
+function getEmail($) {
+  console.log($());
+};
+
+function getContact($) {
+  if ($("a[href*='contact']").length !== 0) {
+    console.log($("a[href*='contact']")[0].attribs.href);
+  } else {
+    console.log("There is no contact link");
+  };
+};
+
 checkContact(URL);
