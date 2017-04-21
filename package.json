@@ -1,0 +1,27 @@
+{
+  "name": "contact-finder",
+  "version": "1.0.0",
+  "description": "Quickly find contact information for a website",
+  "main": "contactfinder.js",
+  "dependencies": {
+    "superagent": "^3.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innerspirit/contact-finder.git"
+  },
+  "keywords": [
+    "contact",
+    "finder"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/innerspirit/contact-finder/issues"
+  },
+  "homepage": "https://github.com/innerspirit/contact-finder#readme"
+}
