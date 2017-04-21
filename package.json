@@ -4,6 +4,7 @@
   "description": "Quickly find contact information for a website",
   "main": "contactfinder.js",
   "dependencies": {
+    "cheerio": "^0.22.0",
     "superagent": "^3.5.2"
   },
   "devDependencies": {},
