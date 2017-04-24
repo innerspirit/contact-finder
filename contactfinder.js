@@ -1,5 +1,5 @@
 const request = require('superagent');
-const cheerio = require('cheerio')
+const cheerio = require('cheerio');
 let URL = process.argv[2];
 
 function checkContact(val) {
