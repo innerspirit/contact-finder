@@ -12,12 +12,17 @@ function checkContact(val) {
         };
       const $ = cheerio.load(res.text);
         getContact($);
-        getEmail($);
+        getEmail(res.text);
     });
 };
 
-function getEmail($) {
-  console.log($());
+function getEmail(val) {
+  let email = /[\w-]+@([\w-]+\.)+[\w-]+/.exec(val);
+  if (email !== null && email !== 0) {
+    console.log(email[0]);
+  } else {
+    console.log("There is no email");
+  };
 };
 
 function getContact($) {
