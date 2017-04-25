@@ -11,7 +11,7 @@ function checkContact(sourceUrl) {
     getDNSEmail(url2domain(sourceUrl)),
     getHTMLContacts(sourceUrl)
   ]).then(function (data) {
-    console.log(mergeObjs(data));
+    console.log(JSON.stringify(mergeObjs(data)));
   })
   .catch(function (err) {
     console.log(err);
