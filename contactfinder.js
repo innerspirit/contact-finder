@@ -6,11 +6,11 @@ var whois = require('whois-ux');
 let URL = process.argv[2];
 
 function checkContact(val) {
-  Promise.all([
+  return Promise.all([
     getDNSEmail(val),
     getHTMLContacts(val)
   ]).then(function (data) {
-    console.log(data);
+    console.log(mergeObjs(data));
   })
 }
 
@@ -57,4 +57,15 @@ function getDNSEmail(url) {
   });
 }
 
-console.log(checkContact(URL));
+function mergeObjs(objs) {
+  return objs.reduce(function(result, currentObject) {
+      for(var key in currentObject) {
+          if (currentObject.hasOwnProperty(key)) {
+              result[key] = currentObject[key];
+          }
+      }
+      return result;
+  }, {});
+}
+
+checkContact(URL);
