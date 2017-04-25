@@ -5,7 +5,11 @@
   "main": "contactfinder.js",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "superagent": "^3.5.2"
+    "native-dns": "^0.7.0",
+    "promise": "^7.1.1",
+    "superagent": "^3.5.2",
+    "superagent-promise": "^1.1.0",
+    "whois-ux": "0.0.2"
   },
   "devDependencies": {},
   "scripts": {
