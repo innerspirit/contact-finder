@@ -1,23 +1,27 @@
 const request = require('superagent');
 var Promise = this.Promise || require('promise');
+const URL = require('url');
 var agent = require('superagent-promise')(request, Promise);
 const cheerio = require('cheerio');
 var whois = require('whois-ux');
-let URL = process.argv[2];
+let urlparam = process.argv[2];
 
-function checkContact(val) {
+function checkContact(sourceUrl) {
   return Promise.all([
-    getDNSEmail(val),
-    getHTMLContacts(val)
+    getDNSEmail(url2domain(sourceUrl)),
+    getHTMLContacts(sourceUrl)
   ]).then(function (data) {
     console.log(mergeObjs(data));
   })
+  .catch(function (err) {
+    console.log(err);
+  });
 }
 
-function getHTMLContacts(val) {
+function getHTMLContacts(htmlUrl) {
   return new Promise(function (accept, reject) {
     agent
-      .get(val)
+      .get(htmlUrl)
       .end()
       .then(function(res) {
         const $ = cheerio.load(res.text);
@@ -32,8 +36,8 @@ function getHTMLContacts(val) {
   });
 }
 
-function getEmail(val) {
-  let email = /[\w-]+@([\w-]+\.)+[\w-]+/.exec(val);
+function getEmail(html) {
+  let email = /[\w-]+@([\w-]+\.)+[\w-]+/.exec(html);
   if (email !== null && email !== 0) {
     return email[0];
   } else {
@@ -49,12 +53,16 @@ function getContact($) {
   }
 }
 
-function getDNSEmail(url) {
+function getDNSEmail(domain) {
   return new Promise(function (accept, reject) {
-    whois.whois(url, function (err, data){
+    whois.whois(domain, function (err, data){
       accept({ 'emailFromDns': data['Registrant Email'] });
     });
   });
+}
+
+function url2domain(fullUrl) {
+  return fullUrl.includes('://') ? (new URL.URL(fullUrl)).hostname : fullUrl;
 }
 
 function mergeObjs(objs) {
@@ -68,4 +76,4 @@ function mergeObjs(objs) {
   }, {});
 }
 
-checkContact(URL);
+checkContact(urlparam);
