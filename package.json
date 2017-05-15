@@ -23,8 +23,9 @@
     "contact",
     "finder"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Christian M. Mackeprang <chris@chrismm.com> (https://chrismm.com/)",
+  "contributors": ["Cesar Mackeprang <cesaroach@gmail.com>"],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/innerspirit/contact-finder/issues"
   },
