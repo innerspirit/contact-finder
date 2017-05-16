@@ -4,17 +4,17 @@ const URL = require('url');
 var agent = require('superagent-promise')(request, Promise);
 const cheerio = require('cheerio');
 var whois = require('whois-ux');
-let urlparam = process.argv[2];
 
-function checkContact(sourceUrl) {
+module.exports = checkContact;
+
+function checkContact(url) {
   return Promise.all([
-    getDNSEmail(url2domain(sourceUrl)),
-    getHTMLContacts(sourceUrl)
+    getDNSEmail(url2domain(url)),
+    getHTMLContacts(url)
   ]).then(function (data) {
-    console.log(JSON.stringify(mergeObjs(data)));
+    return JSON.stringify(mergeObjs(data));
   })
   .catch(function (err) {
-    console.log(err);
   });
 }
 
@@ -75,5 +75,3 @@ function mergeObjs(objs) {
       return result;
   }, {});
 }
-
-checkContact(urlparam);

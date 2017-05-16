@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/innerspirit/contact-finder/issues"
   },
-  "homepage": "https://github.com/innerspirit/contact-finder#readme"
+  "homepage": "https://github.com/innerspirit/contact-finder#readme",
+  "bin": {
+    "contact-finder": "./run.js"
+  }
 }
