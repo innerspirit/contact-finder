@@ -1,6 +1,6 @@
 {
   "name": "contact-finder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Quickly find contact information for a website",
   "main": "contactfinder.js",
   "dependencies": {
@@ -25,7 +25,9 @@
     "finder"
   ],
   "author": "Christian M. Mackeprang <chris@chrismm.com> (https://chrismm.com/)",
-  "contributors": ["Cesar Mackeprang <cesaroach@gmail.com>"],
+  "contributors": [
+    "Cesar Mackeprang <cesaroach@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/innerspirit/contact-finder/issues"
