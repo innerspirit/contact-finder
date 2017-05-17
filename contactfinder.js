@@ -15,14 +15,14 @@ function checkContact(url) {
     return JSON.stringify(mergeObjs(data));
   })
   .catch(function (err) {
-    return {};
+    console.log(err);
   });
 }
 
 function getHTMLContacts(htmlUrl) {
   return new Promise(function (accept, reject) {
     agent
-      .get(htmlUrl)
+      .get("http://" + htmlUrl)
       .end()
       .then(function(res) {
         const $ = cheerio.load(res.text);
