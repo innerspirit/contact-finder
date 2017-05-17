@@ -15,6 +15,7 @@ function checkContact(url) {
     return JSON.stringify(mergeObjs(data));
   })
   .catch(function (err) {
+    return {};
   });
 }
 
