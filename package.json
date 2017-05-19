@@ -1,6 +1,6 @@
 {
   "name": "contact-finder",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Quickly find contact information for a website",
   "main": "contactfinder.js",
   "dependencies": {
