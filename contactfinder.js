@@ -57,7 +57,8 @@ function getContact($) {
 function getDNSEmail(domain) {
   return new Promise(function (accept, reject) {
     whois.whois(domain, function (err, data){
-      accept({ 'emailFromDns': data['Registrant Email'] });
+      var email = data['Registrant Email'] || null;
+      accept({ 'emailFromDns': email });
     });
   });
 }
