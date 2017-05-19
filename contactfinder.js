@@ -12,7 +12,7 @@ function checkContact(url) {
     getDNSEmail(url2domain(url)),
     getHTMLContacts(url)
   ]).then(function (data) {
-    return JSON.stringify(mergeObjs(data));
+    return mergeObjs(data);
   })
   .catch(function (err) {
     console.log(err);
