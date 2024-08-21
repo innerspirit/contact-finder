@@ -4,7 +4,7 @@
   "description": "Quickly find contact information for a website",
   "main": "contactfinder.js",
   "dependencies": {
-    "cheerio": "^0.22.0",
+    "cheerio": "^1.0.0",
     "native-dns": "^0.7.0",
     "promise": "^7.1.1",
     "superagent": "^3.5.2",
